@@ -10,7 +10,7 @@ Puppet::Functions.create_function(:'eyaml_tools::decrypt') do
   def decrypt(enc_data)
     EyamlTools.ensure_config
     parser = Hiera::Backend::Eyaml::Parser::ParserFactory.encrypted_parser
-    tokens = parser.parse(enc_data)
+    tokens = parser.parse(enc_data.gsub(/\s/,'')) # strip whitespace from ENC[] token
     decrypted = tokens.map{ |token|
       case token.class.name
         when /::EncToken$/
