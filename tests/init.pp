@@ -1,12 +1,10 @@
-# The baseline for module testing used by Puppet Labs is that each manifest
-# should have a corresponding test manifest that declares that class or defined
-# type.
-#
-# Tests are then run by using puppet apply --noop (to check for compilation
-# errors and view a log of events) or by fully applying the test in a virtual
-# environment (to compare the resulting system state to the desired state).
-#
-# Learn more about module testing here:
-# http://docs.puppetlabs.com/guides/tests_smoke.html
-#
-include ::eyaml_tools
+# For these tests to work, a valid hiera.yaml will need to be set up with hiera-eyaml,
+# and you'll also need both private and public keys. You can set hiera_config to
+# spec/fixtures/hiera.yaml.
+
+$encrypted = eyaml_tools::encrypt('foo')
+$decrypted = eyaml_tools::decrypt($encrypted)
+
+if ($decrypted != 'foo') {
+  fail("Decrypted data should have been 'foo' but instead it was '$decrypted'!")
+}
