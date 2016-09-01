@@ -1,0 +1,16 @@
+{
+  "name": "UniversityOfWarwick-eyaml_tools",
+  "version": "1.0",
+  "author": "UniversityOfWarwick",
+  "summary": "Exposes hiera-eyaml's decryption as Puppet functions.",
+  "license": "Apache 2.0",
+  "source": "",
+  "project_page": "",
+  "issues_url": "",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.0.0"
+    }
+  ]
+}

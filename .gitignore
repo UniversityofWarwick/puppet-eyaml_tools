@@ -1,0 +1,10 @@
+.*.sw?
+pkg
+spec/fixtures/*
+!spec/fixtures/hiera*
+.rspec_system
+.vagrant
+.bundle
+vendor
+.idea
+*.iml

@@ -1,0 +1,8 @@
+---
+:backends:
+ - eyaml
+
+:eyaml:
+  :datadir: 'spec/fixtures/hiera'
+  :pkcs7_public_key: 'spec/fixtures/hiera/keys/pub.key'
+  :pkcs7_private_key: 'spec/fixtures/hiera/keys/priv.key'
