@@ -1,0 +1,20 @@
+---
+Gemfile:
+  required:
+    ':development':
+      - gem: hiera-eyaml
+spec/spec_helper.rb:
+  mock_with: ':mocha'
+  hiera_config: "'spec/fixtures/hiera.yaml'"
+.gitlab-ci.yml:
+  delete: true
+.pdkignore:
+  delete: true
+.project:
+  delete: true
+.travis.yml:
+  delete: true
+appveyor.yml:
+  delete: true
+.gitignore:
+  unmanaged: true
