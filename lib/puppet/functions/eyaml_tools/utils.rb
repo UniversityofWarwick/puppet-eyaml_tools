@@ -1,4 +1,3 @@
-require 'hiera'
 require 'hiera/backend/eyaml/options'
 
 module EyamlTools
@@ -24,7 +23,7 @@ module EyamlTools
   def hiera_config
     config_file = hiera_config_file
     if config_file
-      Hiera::Config.load(config_file)
+      YAML.load_file(config_file)
     end
   end
 
