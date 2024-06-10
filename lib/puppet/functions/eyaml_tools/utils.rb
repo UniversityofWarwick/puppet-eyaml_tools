@@ -28,7 +28,9 @@ module EyamlTools
   end
 
   def hiera_config_file
-    hiera_config = Puppet.settings[:hiera_config]
+    environment = Puppet[:environment]
+    environment_path = Puppet[:environmentpath]
+    hiera_config = "#{environment_path}/#{environment}/hiera.yaml"
     if Puppet::FileSystem.exist?(hiera_config)
       hiera_config
     else
