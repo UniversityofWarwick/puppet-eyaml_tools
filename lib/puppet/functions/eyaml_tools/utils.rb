@@ -10,11 +10,11 @@ module EyamlTools
     unless @config_done
       c = hiera_config
       raise Puppet::ParseError, 'no Hiera config found' unless c
-      eyaml_config = c[:eyaml]
-      raise 'no :eyaml section found in Hiera config' unless eyaml_config
+      eyaml_config = c['defaults']['options']
+      raise 'no defaults.options section found in Hiera config' unless eyaml_config
       eyaml_config.each do |key, value|
         Puppet.debug "EyamlTools: setting #{key} to #{value}"
-        Hiera::Backend::Eyaml::Options[key] = value
+        Hiera::Backend::Eyaml::Options[key.to_sym] = value
       end
       @config_done = true
     end
